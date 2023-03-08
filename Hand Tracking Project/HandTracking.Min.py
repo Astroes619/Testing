@@ -39,4 +39,6 @@ while True:
 
 
     cv2.imshow("Image", img)
-    cv2.waitKey(1)
+    if cv2.waitKey(1) == ord('q'):
+        break
+
