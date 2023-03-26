@@ -16,18 +16,24 @@ with open('eye_tracking_data.csv', mode='w') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
 
-# define function to get direction of gaze based on eye position
 def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
     eye_center_x = eye_x + eye_w/2
     eye_center_y = eye_y + eye_h/2
     
+    # Define the ranges for left, right, and center directions
+    left_range = face_w * 0.35
+    right_range = face_w * 0.65
+    center_range_left = face_w * 0.325
+    center_range_right = face_w * 0.675
 
-    if eye_center_x < face_w*0.4:
+    if eye_center_x < left_range:
         return 'left'
-    elif eye_center_x > face_w*0.6:
+    elif eye_center_x > right_range:
         return 'right'
-    else:
+    elif center_range_left < eye_center_x < center_range_right:
         return 'center'
+    else:
+        return 'unknown'
 
 # Loop through the frames
 while True:
