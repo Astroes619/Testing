@@ -2,7 +2,6 @@ import cv2
 import csv
 import numpy as np
 from django.shortcuts import render
-from sklearn.model_selection import train_test_split
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
