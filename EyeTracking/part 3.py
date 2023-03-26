@@ -1,26 +1,40 @@
 import cv2
 import csv
-import pyttsx3
 
 # initialize video capture
 cap = cv2.VideoCapture(0)
 
+# load classifiers
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+# Load phone cascade 
+phone_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_phone.xml')
 
 # create CSV file and write header
-with open('eye_data.csv', mode='w') as csv_file:
-    fieldnames = ['x', 'y', 'w', 'h', 'eye_x', 'eye_y']
+with open('eye_tracking_data.csv', mode='w') as csv_file:
+    fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'direction', 'phone_detected']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
 
-# initialize text-to-speech engine
-engine = pyttsx3.init()
+# define function to get direction of gaze based on eye position
+def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
+    eye_center_x = eye_x + eye_w/2
+    eye_center_y = eye_y + eye_h/2
+    
+    if eye_center_x < face_w*0.4:
+        return 'left'
+    elif eye_center_x > face_w*0.6:
+        return 'right'
+    else:
+        return 'center'
 
-# initialize variables to keep track of eye movement
-last_x = None
-last_y = None
-last_direction = None
+# define function to detect phone in image
+def detect_phone(frame, phone_cascade):
+    phones = phone_cascade.detectMultiScale(frame, 1.3, 5)
+    if len(phones) > 0:
+        return True
+    else:
+        return False
 
 # Loop through the frames
 while True:
@@ -45,50 +59,40 @@ while True:
         # Detect the eyes within the face region
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
-        # loop through each detected eye
+        # Loop through each detected eye
         for (ex, ey, ew, eh) in eyes:
             # Draw a rectangle around the eye
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
 
-            # calculate the position of the eye relative to the face
-            eye_x = x + ex + ew // 2
-            eye_y = y + ey + eh // 2
+            # Calculate aspect ratio of eye region
+            aspect_ratio = ew/eh
 
-            # write x, y coordinates to CSV file
-            with open('eye_data.csv', mode='a') as csv_file:
+            # Get the direction of gaze
+            gaze_direction = get_gaze_direction(ex, ey, ew, eh, w)
+
+            # Detect phone in image
+            phone_detected = detect_phone(roi_gray, phone_cascade)
+
+            # write data to CSV file
+            with open('eye_tracking_data.csv', mode='a') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-                writer.writerow({'x': x, 'y': y, 'w':w, 'h':h, 'eye_x': eye_x, 'eye_y': eye_y})
+                writer.writerow({'x': x, 'y': y, 'w': w, 'h': h, 'aspect_ratio': aspect_ratio, 'direction': gaze_direction, 'phone_detected': phone_detected})
 
-            # determine the direction of the eye movement
-            direction = None
-            if last_x is not None and last_y is not None:
-                if eye_x > last_x:
-                    direction = "right"
-                elif eye_x < last_x:
-                    direction = "left"
-                else:
-                    direction = "center"
+            # print data to terminal
+            print(f"x: {x}, y: {y}, w: {w}, h: {h}, aspect_ratio: {aspect_ratio}, direction: {gaze_direction}, phone_detected: {phone_detected}")
 
-            # update the last_x and last_y variables
-            last_x = eye_x
-            last_y = eye_y
-
-            # display the direction of the eye movement
-            if direction is not None and direction != last_direction:
-                cv2.putText(frame, f"Looking {direction.capitalize()}", (eye_x, eye_y-20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
-                last_direction = direction
+            # If phone is detected, draw a rectangle around it
+            if phone_detected:
+                phones = phone_cascade.detectMultiScale(roi_gray)
+                for (px, py, pw, ph) in phones:
+                    cv2.rectangle(roi_color, (px, py), (px+pw, py+ph), (255, 0, 0), 2)
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
-
-    # Wait
-
-
-    # Wait for a key press to exit
-    if cv2.waitKey(1)  == ord('q'):
+   
+    if cv2.waitKey(1) == ord('q'):
         break
 
-# Stop the engine and release video capture and close window
-engine.stop()
+# Release video capture and close window
 cap.release()
 cv2.destroyAllWindows()
