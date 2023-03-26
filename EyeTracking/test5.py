@@ -35,7 +35,6 @@ def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
     else:
         return 'unknown'
 
-
 # Loop through the frames
 while True:
     # Read the frame from the video capture object
@@ -64,13 +63,19 @@ while True:
             # Draw a rectangle around the eye
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
 
-            # Calculate aspect ratio of eye region
+            # Normalize the eye region to a fixed size
+            eye_img = roi_gray[ey:ey+eh, ex:ex+ew]
+            eye_img = cv2.resize(eye_img, (100, 50))
+
+            # Calculate aspect ratio of normalized eye region
             aspect_ratio = ew/eh
 
             # Get the direction of gaze
             gaze_direction = get_gaze_direction(ex, ey, ew, eh, w)
 
             # write data to CSV file
+
+            
             with open('eye_tracking_data.csv', mode='a') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
                 writer.writerow({'x': x, 'y': y, 'w': w, 'h': h, 'aspect_ratio': aspect_ratio, 'direction': gaze_direction})
@@ -85,9 +90,30 @@ while True:
     if cv2.waitKey(1)  == ord('q'):
         break
 
+# Load the data from the CSV file
+data = []
+labels = []
 
+with open('eye_tracking_data.csv', mode='r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    for row in csv_reader:
+        data.append([float(row['x']), float(row['y']), float(row['w']), float(row['h']), float(row['aspect_ratio'])])
+        labels.append(row['direction'])
 
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2)
+
+# Create a decision tree classifier and fit it to the training data
+clf = DecisionTreeClassifier()
+clf.fit(X_train, y_train)
+
+# Test the classifier on the testing data and print the accuracy
+accuracy = clf.score(X_test, y_test)
+print(f"Accuracy: {accuracy * 100:.2f}%")
 
 # Release video capture and close window
 cap.release()
 cv2.destroyAllWindows()
+
+
+
