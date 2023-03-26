@@ -63,7 +63,7 @@ while True:
             # Draw a rectangle around the eye
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
 
-            # Normalize the eye region to a fixed size
+            # Normalize the eye region to a fixed size &improve eye tracking 
             eye_img = roi_gray[ey:ey+eh, ex:ex+ew]
             eye_img = cv2.resize(eye_img, (100, 50))
 
