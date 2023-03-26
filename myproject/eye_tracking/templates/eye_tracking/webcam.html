@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam</title>
+</head>
+<body>
+    <h1>Webcam Stream</h1>
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    <script>
+        const video = document.getElementById('webcam');
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err) {
+                    console.log("An error occurred: " + err);
+                });
+        }
+    </script>
+</body>
+</html>
