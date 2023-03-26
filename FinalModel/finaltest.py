@@ -21,6 +21,7 @@ def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
     eye_center_x = eye_x + eye_w/2
     eye_center_y = eye_y + eye_h/2
     
+
     if eye_center_x < face_w*0.4:
         return 'left'
     elif eye_center_x > face_w*0.6:
