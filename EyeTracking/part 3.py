@@ -77,7 +77,7 @@ with open('eye_tracking_data.csv', mode='a') as csv_file:
  # Only write the header if the file is empty
     if csv_file.tell() == 0:
         writer.writeheader()
-writer.writerows(eye_tracking_data)
+    writer.writerows(eye_tracking_data)
 
 # Load the data from the list
 data = []
