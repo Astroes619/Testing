@@ -12,6 +12,20 @@ def extract_hog_features(image):
     features = hog(image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), multichannel=False)
     return features
 
+# Load the data from the CSV file
+data = []
+
+with open('eye_tracking_data.csv', mode='r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    next(csv_reader)  # Skip the header row
+
+    for row in csv_reader:
+        image_path = row[0]
+        label = row[1]
+        data.append([image_path, label])
+
+
+
 # Load images and labels from the folders
 eye_images = []
 labels = []
