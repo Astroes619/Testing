@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import webcam
+from . import views
 
 urlpatterns = [
-    path('webcam/', webcam, name='webcam'),
+    path('webcam/', views.webcam, name='webcam'),
 ]

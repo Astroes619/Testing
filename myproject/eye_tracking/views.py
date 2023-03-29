@@ -26,6 +26,11 @@ def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
 
 
 def webcam(request):
+    # Initialize the CSV writer
+    with open('eye_tracking_data.csv', mode='w', newline='') as csv_file:
+        fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'direction']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
     cap = cv2.VideoCapture(0)
     eye_tracking_data = []
 
