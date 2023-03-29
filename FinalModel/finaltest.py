@@ -34,6 +34,7 @@ def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
 # Loop through the frames
 while True:
     ret, frame = cap.read()
+    
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
