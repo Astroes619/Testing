@@ -57,6 +57,9 @@ while True:
 
             gaze_direction = get_gaze_direction(ex, ey, ew, eh, w)
 
+            # Add text label to the frame to display the direction
+            cv2.putText(frame, f"Gaze Direction: {gaze_direction}", (x, y-20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2, cv2.LINE_AA)
+
             # Append data to the list instead of writing to the CSV file
             eye_tracking_data.append({'x': x, 'y': y, 'w': w, 'h': h, 'aspect_ratio': aspect_ratio, 'direction': gaze_direction})
 
