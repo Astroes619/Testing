@@ -57,10 +57,15 @@ def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
 
 eye_tracking_data = []
 
-with open('eye_tracking_data.csv', mode='w') as csv_file:
+with open('eye_tracking_data.csv', mode='a') as csv_file:
     fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'ground_truth', 'predicted']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-    writer.writeheader()
+   
+     # Only write the header if the file is empty
+    if csv_file.tell() == 0:
+        writer.writeheader()
+    
+    writer.writerows(eye_tracking_data)
 
 while True:
     ret, frame = cap.read()
@@ -101,10 +106,22 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
 
+correct_predictions = 0
+total_predictions = len(eye_tracking_data)
+
+for data_point in eye_tracking_data:
+    if data_point['ground_truth'] == data_point['predicted']:
+        correct_predictions += 1
+
+final_accuracy = (correct_predictions / total_predictions) * 100
+print(f"Final Accuracy: {final_accuracy:.2f}%")
+
 with open('eye_tracking_data.csv', mode='a') as csv_file:
     fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'ground_truth', 'predicted']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writerows(eye_tracking_data)
+
+
 
 cap.release()
 cv2.destroyAllWindows()
