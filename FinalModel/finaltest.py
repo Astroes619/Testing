@@ -69,7 +69,7 @@ while True:
         break
 
 # Write the data to the CSV file
-with open('eye_tracking_data.csv', mode='w') as csv_file:
+with open('eye_tracking_data.csv', mode='a') as csv_file:
     fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'direction']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
