@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Proctoring System</title>
+</head>
+<body>
+    <h1>Online Proctoring System</h1>
+    <img id="video" src="" alt="Video stream not available">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Your JavaScript code for handling the video streaming
+
+        $(document).ready(function () {
+        const socket = io.connect('http://' + document.domain + ':' + location.port + '/video');
+
+        socket.on('connect', function () {
+        socket.emit('start', { data: 'Client connected!' });
+        });
+
+        socket.on('response', function (data) {
+        const video = document.getElementById('video');
+        video.src = 'data:image/jpeg;base64,' + data.image;
+        });
+
+        socket.emit('frame');
+        });
+
+    </script>
+</body>
+</html>
