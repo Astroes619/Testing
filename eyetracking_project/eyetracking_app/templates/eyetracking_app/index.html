@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Tracking</title>
+</head>
+<body>
+    <h1>Online Proctoring System</h1>
+    <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">
+
+    <!-- Add your JavaScript code here -->
+    <script>
+        let video = document.getElementById("video");
+    
+        function setupCamera() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices
+                    .getUserMedia({ video: true })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                        video.onloadedmetadata = function () {
+                            video.play();
+                        };
+                    })
+                    .catch(function (error) {
+                        console.error("Error: Unable to access the camera.", error);
+                    });
+            } else {
+                console.error("Error: getUserMedia is not supported by this browser.");
+            }
+        }
+    
+        setupCamera();
+    </script>
+    
+    
+</body>
+</html>
