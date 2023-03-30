@@ -121,4 +121,3 @@ with open('eye_tracking_data.csv', mode='a') as csv_file:
 
 cap.release()
 cv2.destroyAllWindows()
-
