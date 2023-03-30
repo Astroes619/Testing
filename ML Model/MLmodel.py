@@ -16,6 +16,7 @@ def extract_hog_features(image):
 eye_images = []
 labels = []
 
+
 directions = ['left', 'center', 'right']
 for direction in directions:
     folder_path = f'eye_images/{direction}'
