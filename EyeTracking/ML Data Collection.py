@@ -63,7 +63,7 @@ while True:
             else:
                 continue
 
-            img_path = 'eye_images/{label}/eye_{img_count}.png'
+            img_path = f'eye_images/{label}/eye_{img_count}.png'
             cv2.imwrite(img_path, eye_img)
             img_count += 1
 
