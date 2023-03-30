@@ -62,6 +62,15 @@ with open('eye_tracking_data.csv', mode='w') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
+# with open('eye_tracking_data.csv', mode='a') as csv_file:
+#     fieldnames = ['x', 'y', 'w', 'h', 'aspect_ratio', 'ground_truth', 'predicted']
+#     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+   
+#      # Only write the header if the file is empty
+#     if csv_file.tell() == 0:
+#         writer.writeheader()
+    
+#     writer.writerows(eye_tracking_data)
 
 while True:
     ret, frame = cap.read()

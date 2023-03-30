@@ -39,14 +39,14 @@ while True:
 
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
-        for (ex, ey, ew, eh) in eyes:
+        for idx, (ex, ey, ew, eh) in enumerate(eyes):
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
 
             # Save the preprocessed eye image
             eye_img = roi_gray[ey:ey+eh, ex:ex+ew]
             eye_img = cv2.resize(eye_img, (100, 50))
 
-            cv2.imshow('eye', eye_img)
+            cv2.imshow(f'eye_{idx}', eye_img)
 
             # Manually label the data as 'left', 'center', or 'right'
             key = cv2.waitKey(0) & 0xFF
@@ -63,9 +63,8 @@ while True:
             else:
                 continue
 
-            img_path = f'eye_images/{label}/eye_{img_count}.png'
+            img_path = f'eye_images/{label}/eye_{img_count}_idx_{idx}.png'
             cv2.imwrite(img_path, eye_img)
-            img_count += 1
 
             # Write the image path and label to the CSV file
             with open('eye_tracking_data.csv', mode='a') as csv_file:
@@ -76,6 +75,8 @@ while True:
 
     if cv2.waitKey(1) == ord('q'):
         break
+
+    img_count += 1
 
 # Release video capture and close window
 cap.release()
