@@ -1,3 +1,4 @@
+import time
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 import cv2
@@ -88,9 +89,11 @@ def connect():
 @socketio.on('frame', namespace='/video')
 def frame():
     global frame_generator
-    frame = next(frame_generator)
-    img_str = base64.b64encode(frame).decode('utf-8')
-    emit('response', {'image': img_str})
+    while True:
+        frame = next(frame_generator)
+        img_str = base64.b64encode(frame).decode('utf-8')
+        emit('response', {'image': img_str})
+        time.sleep(0.03)  # Adjust this value to control the frame rate
 
 
 
