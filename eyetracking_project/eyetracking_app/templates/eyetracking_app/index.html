@@ -4,10 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eye Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        #video {
+            border: 1px solid #000;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Online Proctoring System</h1>
-    <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">
+    <div id="container">
+        <div>
+            <h1>Online Proctoring System</h1>
+            <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">            <p>Some text about the application goes here.</p>
+            <button id="button1">Button 1</button>
+            <button id="button2">Button 2</button>
+        </div>
+    </div>
+
+    
 
     <!-- Add your JavaScript code here -->
     <script>
