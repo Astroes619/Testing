@@ -10,20 +10,43 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            background-color:#032243;
+
+
+;
         }
         
         #container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            height: 100%;
+            width: 100% ;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2%;
+        }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         #video {
             border: 1px solid #000;
         }
         
+        #details-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-left: 20px;
+            width: 300px; /* Adjust the width as needed */
+            max-height: 480px; /* Match the height of the video */
+            overflow-y: auto; /* Add scrollbar if the content exceeds the container height */
+        }
+
         button {
             background-color: #4CAF50;
             border: none;
@@ -36,18 +59,37 @@
             margin: 10px 2px;
             cursor: pointer;
         }
+
+        #header-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
     </style>
 </head>
 <body>
+    <!-- This is the HTML code for the webpage. -->
     <div id="container">
         <div>
-            <h1>Online Proctoring System</h1>
-            <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">            <p>Some text about the application goes here.</p>
+            <img id="header-image" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/oracle.png" > <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+            <div id="content">
+                <div id="video-container">
+                    <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">
+                    <p>Some text about the application goes here.</p>
+                </div>
+                <div id="details-container">
+                    <p>Here you can add other text details. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+            </div>
+
             <button id="button1">Button 1</button>
             <button id="button2">Button 2</button>
         </div>
     </div>
 
+
+    <p> asgdasgjadshkjdsagjgdaiuhgdfajsgauhiufasgasjasiasgdi</p>
     
 
     <!-- Add your JavaScript code here -->
