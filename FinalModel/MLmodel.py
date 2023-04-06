@@ -43,4 +43,4 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 
 # Now you can use the trained model (clf) to predict gaze direction in the live application
 
-joblib.dump(clf, 'trained_model.pkl')
+joblib.dump(clf, 'trained_model.joblib')
