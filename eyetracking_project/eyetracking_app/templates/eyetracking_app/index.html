@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eye Tracking</title>
+    <title>Oracle Online Proctoring System </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,9 +43,13 @@
             padding: 20px;
             border-radius: 10px;
             margin-left: 20px;
-            width: 300px; /* Adjust the width as needed */
+            width: auto; /* Adjust the width as needed */
             max-height: 480px; /* Match the height of the video */
             overflow-y: auto; /* Add scrollbar if the content exceeds the container height */
+        }
+
+        #oracle-container h1 {
+            text-align: left;
         }
 
         button {
@@ -66,6 +71,18 @@
             margin-right: auto;
         }
         
+        footer {
+            background-color: rgba(23, 14, 59, 1);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            max-width: 1405px;
+
+        }
     </style>
 </head>
 <body>
@@ -75,21 +92,103 @@
             <img id="header-image" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/oracle.png" > <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
             <div id="content">
                 <div id="video-container">
-                    <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available">
-                    <p>Some text about the application goes here.</p>
+                    <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available"><br>
+                    <i class="fas fa-camera"></i> Some text about the application goes here
+                        <div id ="video-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ullamco laboris nisi ut aliquip ex ea commodo consequat. ullamco laboris nisi ut.
+                        </div>
+
                 </div>
                 <div id="details-container">
-                    <p>Here you can add other text details. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <ul>
+                        <h3>Lorem ipsum dolor sit amet,</h3>
+                        <li> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                        <h3>Ut enim ad minim veniam,</h3>
+                        <li> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <h3>Ullamco laboris nisi ut.</h3>
+                        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        
+                    </ul>               
                 </div>
             </div>
 
-            <button id="button1">Button 1</button>
-            <button id="button2">Button 2</button>
+            <div id="question-container">
+                <h1> Question Paper </h1>  
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfOU7TIp9GtvrlzSRNfz8n5Kn2iw8I28zFaT81tHUlZyFnofw/viewform?embedded=true" width="640" height="3538" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                
+                
+            </div>
+
+            <div id="oracle-container">
+                <div id="usage-container">
+                    <h1>Why Use Oracle</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </p>
+                </div>
+                <div id="importance-container">
+                    <h1>What is the importance of implementing a system like ORACLE ?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    </p>
+
+
+                </div>
+
+            </div>
+
+            <div id="technologies-container">
+                <div id="usage-container">
+                    <h1>Why Use Oracle</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </p>
+                </div>
+                <div id="importance-container">
+                    <h1>What is the importance of implementing a system like ORACLE ?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    </p>
+
+
+                </div>
+
+            </div>
+
+            <div id="logo-container">
+                <h1>Technologies Used</h1>
+
+
+                <img id="heroku" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%2010.png" > 
+                <img id="python" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%202.png" > 
+                <img id="django" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%208.png" > 
+                <img id="anaconda" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%206.png" > 
+                <img id="html" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/html%201.png" > 
+                <img id="css" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/css%201.png" > 
+                <img id="javascript" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%2011.png" > 
+                <img id="firebase" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/image%209.png" > 
+
+
+            </div><br>
+
+            <div id="follow-container">
+                <h1>Follow for More Projects </h1>
+
+                <a href="https://github.com/Astroes619" target="_blank"> <img id="github" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/mark-github.png" > </a>
+                <a href="https://www.linkedin.com/in/atheequehasan/" target="_blank"> <img id="linkedin" src="https://raw.githubusercontent.com/Astroes619/Oracle_assets/main/logos/%5BCITYPNG%201.png" > </a>
+                
+
+            </div>
         </div>
     </div>
+    <footer>
+        &copy; 2023 Atheeque Hasan  - All rights reserved <br>
+         WITH ❤️ BY Atheeque Hasan - Final Year Project 2023
 
+    </footer>
 
-    <p> asgdasgjadshkjdsagjgdaiuhgdfajsgauhiufasgasjasiasgdi</p>
     
 
     <!-- Add your JavaScript code here -->
