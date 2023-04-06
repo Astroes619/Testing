@@ -43,4 +43,11 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 
 # Now you can use the trained model (clf) to predict gaze direction in the live application
 
-joblib.dump(clf, 'trained_model.joblib')
+# Get the current script's directory
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Create the path for the trained model file in the same directory
+trained_model_path = os.path.join(current_script_dir, 'trained_model.joblib')
+
+# Save the model
+joblib.dump(clf, trained_model_path)
