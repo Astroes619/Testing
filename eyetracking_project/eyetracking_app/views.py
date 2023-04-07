@@ -14,7 +14,15 @@ def extract_hog_features(image):
     features = hog(image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), multichannel=False)
     return features
 
-clf = joblib.load('trained_model.joblib')
+# Get the directory of the current script
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Create the path for the trained model file in the same directory as the script
+trained_model_path = os.path.join(current_script_dir, 'trained_model.joblib')
+
+# Load the model
+clf = joblib.load(trained_model_path)
+
 
 def get_gaze_direction(eye_x, eye_y, eye_w, eye_h, face_w):
     eye_center_x = eye_x + eye_w/2
