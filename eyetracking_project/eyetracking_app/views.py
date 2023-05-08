@@ -1,3 +1,4 @@
+import datetime
 import logging
 import os
 import csv
@@ -69,7 +70,11 @@ def toggle_recording(request):
         if recording:
             # Start recording
             fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-            out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
+             # Generate a unique file name using a timestamp
+            timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+            file_name = f'output_{timestamp}.mp4'
+
+            out = cv2.VideoWriter(file_name, fourcc, 20.0, (640, 480))
 
             while recording:
                 ret, frame = video_capture.read()
