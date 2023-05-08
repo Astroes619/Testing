@@ -9,6 +9,30 @@ from sklearn.svm import SVC
 from django.shortcuts import render
 from django.http import StreamingHttpResponse, HttpResponseServerError, JsonResponse
 import joblib
+from firebase import bucket
+
+from django.views.decorators.csrf import csrf_exempt
+from firebase_admin import storage
+
+@csrf_exempt
+def upload_file(request):
+    if request.method == 'POST':
+        file = request.FILES['file']
+        file_name = file.name
+
+        # Upload the file to Firebase Storage
+        blob = storage.bucket().blob(file_name)
+        blob.upload_from_string(file.read())
+
+        # Get the public URL of the uploaded file
+        file_url = blob.public_url
+
+        return JsonResponse({'file_url': file_url})
+    else:
+        return JsonResponse({'error': 'Invalid request method'})
+
+
+
 
 
 # debugging ML 

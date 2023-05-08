@@ -6,6 +6,8 @@ urlpatterns = [
     path('live_feed/', views.live_feed, name='live_feed'), 
     path('dynamic_stream/', views.dynamic_stream, name='dynamic_stream'),
     path('toggle_recording/', views.toggle_recording, name='toggle_recording'),
+    path('upload_file/', views.upload_file, name='upload_file'),
+
 
 
 ]

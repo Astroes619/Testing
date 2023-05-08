@@ -5,29 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oracle Online Proctoring System </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-
+<!-- JS for the recording button  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-          function toggleRecording() {
-          $.ajax({
-              url: '/toggle_recording/',
-              type: 'POST',
-              beforeSend: function (xhr) {
-                  xhr.setRequestHeader('X-CSRFToken', csrftoken);
-              },
-              success: function (response) {
-                  if (response.status === 'success') {
-                      console.log('Recording toggled');
-                  } else {
-                      console.log('Error: ' + response.message);
-                  }
-              }
-          });
-      }
+              // Keep track of the recording state
+    var isRecording = false;
+
+    function toggleRecording() {
+        // Get the record button element
+        var recordButton = document.getElementById("recordButton");
+
+        // Toggle the recording state
+        isRecording = !isRecording;
+
+        // Update the text of the button based on the recording state
+        if (isRecording) {
+            recordButton.textContent = "Stop Recording";
+        } else {
+            recordButton.textContent = "Start Recording";
+        }
+
+        $.ajax({
+            url: '/toggle_recording/',
+            type: 'POST',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRFToken', csrftoken);
+            },
+            success: function (response) {
+                if (response.status === 'success') {
+                    console.log('Recording toggled');
+                } else {
+                    console.log('Error: ' + response.message);
+                }
+            }
+        });
+    }
+    </script>
   
-      </script>
-  
-  
+    
+
   
   <script>
       function getCookie(name) {
@@ -47,8 +63,7 @@
       const csrftoken = getCookie('csrftoken');
   </script>
 
-
-
+ 
 
     <style>
         body {
@@ -88,7 +103,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-left: 20px;
-            width: auto;
+            width: 400px;
             max-height: 480px; /* Match the height of the video */
             overflow-y: auto; /* Add scrollbar if the content exceeds the container height */
             overflow-x: auto;
@@ -143,15 +158,66 @@
                     <i class="fas fa-camera"></i> Please Give Access To Your Camera
                         <div id ="video-description">
                             <ul>Instructions</ul>
-                            <p>Maintain a distance of about 1-2 feet (30-60 cm) from the camera.Keep your eyes open and focus on the screen.Ensure that your face is visible and centered in the camera frame.Avoid wearing hats or any accessories that can obstruct the view of your eyes.Before strting the examination make sure to start the recording session
+                            <p>Maintain a distance of about 1-2 feet (30-60 cm) from the camera.Keep your eyes open and focus on the screen.Ensure that your face is visible and centered in the camera frame.Avoid wearing hats or any accessories that can obstruct the view of your eyes.Before starting the examination make sure to start the recording session
 
                         </div>
 
                 </div>
                 <div id="details-container">
-                    <button onclick="toggleRecording()">Toggle Recording</button> <br><br>
-                    <input type="file" id="video-file" accept="video/*">
-                    <button type="submit">Upload Video</button>
+                    <button id="recordButton" onclick="toggleRecording()">Start Recording</button> <br><br>
+
+
+                    <input type="file" id="fileInput" style="display: none;" accept=".mp4">
+                    <button id="uploadButton">Upload File</button>
+
+                    <script>
+                        // Upload file function from previous response
+                        function uploadFile(file) {
+                        var formData = new FormData();
+                        formData.append('file', file);
+
+                        fetch('/upload_file/', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.file_url) {
+                            console.log("File uploaded successfully. URL:", data.file_url);
+                            } else {
+                            console.error("Error uploading file.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                        }
+
+                        // Get file input and button elements
+                        var fileInput = document.getElementById("fileInput");
+                        var uploadButton = document.getElementById("uploadButton");
+
+                        // Add click event listener to the button
+                        uploadButton.addEventListener("click", function() {
+                        fileInput.click(); // Programmatically trigger the file input's click event
+                        });
+
+                        // Add change event listener to the file input
+                        fileInput.addEventListener("change", function() {
+                            var file = this.files[0];
+                            if (file) {
+                                // Check if the file extension is .mp4
+                                var fileExtension = file.name.split('.').pop().toLowerCase();
+                                if (fileExtension === "mp4") {
+                                    uploadFile(file);
+                                } else {
+                                    alert("Please upload a .mp4 file.");
+                                    this.value = ""; // Reset the file input value
+                                }
+                            }
+                        });
+
+                    </script>
                 </div>
                 
 
