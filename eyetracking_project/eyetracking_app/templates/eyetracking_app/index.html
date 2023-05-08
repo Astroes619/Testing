@@ -88,7 +88,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-left: 20px;
-            max-width: 100%;
+            width: auto;
             max-height: 480px; /* Match the height of the video */
             overflow-y: auto; /* Add scrollbar if the content exceeds the container height */
             overflow-x: auto;
@@ -142,12 +142,14 @@
                     <img id="video" src="{% url 'dynamic_stream' %}" alt="Video stream not available"><br>
                     <i class="fas fa-camera"></i> Please Give Access To Your Camera
                         <div id ="video-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ullamco laboris nisi ut aliquip ex ea commodo consequat. ullamco laboris nisi ut.
+                            <ul>Instructions</ul>
+                            <p>Maintain a distance of about 1-2 feet (30-60 cm) from the camera.Keep your eyes open and focus on the screen.Ensure that your face is visible and centered in the camera frame.Avoid wearing hats or any accessories that can obstruct the view of your eyes.Before strting the examination make sure to start the recording session
+
                         </div>
 
                 </div>
                 <div id="details-container">
-                    <button onclick="toggleRecording()">Toggle Recording</button>
+                    <button onclick="toggleRecording()">Toggle Recording</button> <br><br>
                     <input type="file" id="video-file" accept="video/*">
                     <button type="submit">Upload Video</button>
                 </div>
