@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oracle Online Proctoring System </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+          function toggleRecording() {
+          $.ajax({
+              url: '/toggle_recording/',
+              type: 'POST',
+              beforeSend: function (xhr) {
+                  xhr.setRequestHeader('X-CSRFToken', csrftoken);
+              },
+              success: function (response) {
+                  if (response.status === 'success') {
+                      console.log('Recording toggled');
+                  } else {
+                      console.log('Error: ' + response.message);
+                  }
+              }
+          });
+      }
+  
+      </script>
+  
+  
+  
+  <script>
+      function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              const cookies = document.cookie.split(';');
+              for (let i = 0; i < cookies.length; i++) {
+                  const cookie = cookies[i].trim();
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+      const csrftoken = getCookie('csrftoken');
+  </script>
+
+
+
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +88,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-left: 20px;
-            width: auto; /* Adjust the width as needed */
+            width: 300px; /* Adjust the width as needed */
             max-height: 480px; /* Match the height of the video */
             overflow-y: auto; /* Add scrollbar if the content exceeds the container height */
         }
@@ -101,15 +146,14 @@
 
                 </div>
                 <div id="details-container">
-                    <ul>
-                        <h3>Lorem ipsum dolor sit amet,</h3>
-                        <li> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-                        <h3>Ut enim ad minim veniam,</h3>
-                        <li> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <h3>Ullamco laboris nisi ut.</h3>
-                        <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        
-                    </ul>               
+                    <button onclick="toggleRecording()">Toggle Recording</button>
+
+                    <form id="video-form" >
+                        <input type="file" id="video-file" accept="video/*">
+                        <button type="submit">Upload Video</button>
+                        </form>
+
+              
                 </div>
             </div>
 

@@ -6,12 +6,48 @@ from skimage.feature import hog
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from django.shortcuts import render
-from django.http import StreamingHttpResponse, HttpResponseServerError
+from django.http import StreamingHttpResponse, HttpResponseServerError, JsonResponse
 import joblib
+
+recording = False
+video_capture = cv2.VideoCapture(0)
+
+def toggle_recording(request):
+    global recording, video_capture
+
+    if request.method == 'POST':
+        recording = not recording
+
+        if recording:
+            # Start recording
+            fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+            out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (640, 480))
+
+            while recording:
+                ret, frame = video_capture.read()
+
+                if not ret or frame is None:
+                    continue
+
+                out.write(frame)
+
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+
+            out.release()
+        else:
+            # Stop recording
+            video_capture.release()
+            cv2.destroyAllWindows()
+
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request'})
+
 
 def extract_hog_features(image):
     image = cv2.resize(image, (100, 50))
-    features = hog(image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), multichannel=False)
+    features = hog(image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2), visualize=False, multichannel=False, channel_axis=-1)
     return features
 
 # Get the directory of the current script
