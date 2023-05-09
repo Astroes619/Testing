@@ -178,10 +178,7 @@
 
                         fetch('/upload_file/', {
                             method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Content-Type': 'video/mp4' // Explicitly set the content type to video/mp4
-                            }
+                            body: formData
                         })
                         .then(response => response.json())
                         .then(data => {
