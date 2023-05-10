@@ -123,3 +123,8 @@
 2023-05-10 04:26:20,901 - DEBUG - Received frame for eye detection.
 2023-05-10 04:26:20,901 - DEBUG - Generating frames for video streaming.
 2023-05-10 04:26:20,901 - DEBUG - Serving dynamic video stream.
+2023-05-10 04:29:29,424 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-10 04:29:29,436 - DEBUG - Trained model loaded successfully.
+2023-05-10 04:29:29,436 - DEBUG - Received frame for eye detection.
+2023-05-10 04:29:29,436 - DEBUG - Generating frames for video streaming.
+2023-05-10 04:29:29,436 - DEBUG - Serving dynamic video stream.
