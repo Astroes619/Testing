@@ -138,3 +138,108 @@
 2023-05-10 05:18:10,190 - DEBUG - Received frame for eye detection.
 2023-05-10 05:18:10,190 - DEBUG - Generating frames for video streaming.
 2023-05-10 05:18:10,190 - DEBUG - Serving dynamic video stream.
+2023-05-11 07:03:53,931 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-11 07:03:53,942 - DEBUG - Trained model loaded successfully.
+2023-05-11 07:03:53,942 - DEBUG - Received frame for eye detection.
+2023-05-11 07:03:53,942 - DEBUG - Generating frames for video streaming.
+2023-05-11 07:03:53,942 - DEBUG - Serving dynamic video stream.
+2023-05-11 07:06:32,207 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-11 07:06:32,218 - DEBUG - Trained model loaded successfully.
+2023-05-11 07:06:32,218 - DEBUG - Received frame for eye detection.
+2023-05-11 07:06:32,218 - DEBUG - Generating frames for video streaming.
+2023-05-11 07:06:32,218 - DEBUG - Serving dynamic video stream.
+2023-05-11 08:30:15,849 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-11 08:30:15,856 - DEBUG - Trained model loaded successfully.
+2023-05-11 08:30:15,856 - DEBUG - Received frame for eye detection.
+2023-05-11 08:30:15,856 - DEBUG - Generating frames for video streaming.
+2023-05-11 08:30:15,856 - DEBUG - Serving dynamic video stream.
+2023-05-11 08:30:35,844 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-11 08:30:35,853 - DEBUG - Trained model loaded successfully.
+2023-05-11 08:30:35,853 - DEBUG - Received frame for eye detection.
+2023-05-11 08:30:35,853 - DEBUG - Generating frames for video streaming.
+2023-05-11 08:30:35,853 - DEBUG - Serving dynamic video stream.
+2023-05-11 08:31:20,147 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-11 08:31:20,159 - DEBUG - Trained model loaded successfully.
+2023-05-11 08:31:20,159 - DEBUG - Received frame for eye detection.
+2023-05-11 08:31:20,159 - DEBUG - Generating frames for video streaming.
+2023-05-11 08:31:20,160 - DEBUG - Serving dynamic video stream.
+2023-05-13 14:25:46,482 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-13 14:25:46,491 - DEBUG - Trained model loaded successfully.
+2023-05-13 14:25:46,491 - DEBUG - Received frame for eye detection.
+2023-05-13 14:25:46,491 - DEBUG - Generating frames for video streaming.
+2023-05-13 14:25:46,491 - DEBUG - Serving dynamic video stream.
+2023-05-14 15:18:23,188 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-14 15:18:23,215 - DEBUG - Trained model loaded successfully.
+2023-05-14 15:18:23,216 - DEBUG - Received frame for eye detection.
+2023-05-14 15:18:23,216 - DEBUG - Generating frames for video streaming.
+2023-05-14 15:18:23,216 - DEBUG - Serving dynamic video stream.
+2023-05-16 18:32:39,542 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 18:32:39,553 - DEBUG - Trained model loaded successfully.
+2023-05-16 18:32:39,553 - DEBUG - Received frame for eye detection.
+2023-05-16 18:32:39,553 - DEBUG - Generating frames for video streaming.
+2023-05-16 18:32:39,553 - DEBUG - Serving dynamic video stream.
+2023-05-16 20:42:43,253 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 20:42:43,282 - DEBUG - Trained model loaded successfully.
+2023-05-16 20:42:43,282 - DEBUG - Received frame for eye detection.
+2023-05-16 20:42:43,282 - DEBUG - Generating frames for video streaming.
+2023-05-16 20:42:43,282 - DEBUG - Serving dynamic video stream.
+2023-05-16 20:49:29,906 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 20:49:29,918 - DEBUG - Trained model loaded successfully.
+2023-05-16 20:49:29,918 - DEBUG - Received frame for eye detection.
+2023-05-16 20:49:29,919 - DEBUG - Generating frames for video streaming.
+2023-05-16 20:49:29,919 - DEBUG - Serving dynamic video stream.
+2023-05-16 20:52:23,031 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 20:52:23,041 - DEBUG - Trained model loaded successfully.
+2023-05-16 20:52:23,041 - DEBUG - Received frame for eye detection.
+2023-05-16 20:52:23,041 - DEBUG - Generating frames for video streaming.
+2023-05-16 20:52:23,041 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:00:34,798 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:00:34,826 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:00:34,826 - DEBUG - Received frame for eye detection.
+2023-05-16 21:00:34,826 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:00:34,827 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:07:39,594 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:07:39,605 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:07:39,605 - DEBUG - Received frame for eye detection.
+2023-05-16 21:07:39,605 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:07:39,605 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:09:31,928 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:09:31,940 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:09:31,940 - DEBUG - Received frame for eye detection.
+2023-05-16 21:09:31,940 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:09:31,940 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:11:19,571 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:11:19,583 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:11:19,584 - DEBUG - Received frame for eye detection.
+2023-05-16 21:11:19,584 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:11:19,584 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:11:32,540 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:11:32,550 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:11:32,550 - DEBUG - Received frame for eye detection.
+2023-05-16 21:11:32,551 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:11:32,551 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:15:41,557 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:15:41,568 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:15:41,568 - DEBUG - Received frame for eye detection.
+2023-05-16 21:15:41,568 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:15:41,568 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:17:28,701 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:17:28,711 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:17:28,711 - DEBUG - Received frame for eye detection.
+2023-05-16 21:17:28,711 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:17:28,711 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:19:59,411 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:19:59,423 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:19:59,423 - DEBUG - Received frame for eye detection.
+2023-05-16 21:19:59,423 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:19:59,423 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:21:58,692 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:21:58,702 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:21:58,703 - DEBUG - Received frame for eye detection.
+2023-05-16 21:21:58,703 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:21:58,703 - DEBUG - Serving dynamic video stream.
+2023-05-16 21:22:31,286 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-16 21:22:31,306 - DEBUG - Trained model loaded successfully.
+2023-05-16 21:22:31,306 - DEBUG - Received frame for eye detection.
+2023-05-16 21:22:31,306 - DEBUG - Generating frames for video streaming.
+2023-05-16 21:22:31,307 - DEBUG - Serving dynamic video stream.
