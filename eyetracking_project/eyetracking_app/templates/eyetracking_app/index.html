@@ -169,6 +169,8 @@
 
                     <input type="file" id="fileInput" style="display: none;" accept=".mp4">
                     <button id="uploadButton">Upload File</button>
+                    <div id="uploadStatus"></div>
+                    <div id="uploadProgress"></div>
 
                     <script>
                         // Upload file function from previous response
@@ -176,12 +178,22 @@
                         var formData = new FormData();
                         formData.append('file', file);
 
+                        var uploadStatus = document.getElementById("uploadStatus");
+                        var uploadProgress = document.getElementById("uploadProgress");
+
                         fetch('/upload_file/', {
                             method: 'POST',
                             body: formData
                         })
-                        .then(response => response.json())
-                        .then(data => {
+                        .then(response => {
+                            if (response.ok) {
+                                uploadStatus.innerText = "File uploaded successfully.";
+                                return response.json();
+                            } else {
+                                throw new Error("Error uploading file.");
+                            }
+                        })                       
+                         .then(data => {
                             if (data.file_url) {
                             console.log("File uploaded successfully. URL:", data.file_url);
                             } else {
@@ -191,7 +203,16 @@
                         .catch(error => {
                             console.error("Error:", error);
                         });
-                        }
+                        // Add progress event listener
+                        formData.on('progress', function(event) {
+                            if (event.lengthComputable) {
+                                var progressValue = Math.round((event.loaded / event.total) * 100);
+                                uploadProgress.innerText = "Upload progress: " + progressValue + "%";
+                            }
+                        });
+                    }
+
+                        
 
                         // Get file input and button elements
                         var fileInput = document.getElementById("fileInput");
