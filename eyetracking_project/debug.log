@@ -278,3 +278,28 @@
 2023-05-17 21:36:49,652 - DEBUG - Received frame for eye detection.
 2023-05-17 21:36:49,652 - DEBUG - Generating frames for video streaming.
 2023-05-17 21:36:49,652 - DEBUG - Serving dynamic video stream.
+2023-05-25 01:10:07,070 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-25 01:10:07,081 - DEBUG - Trained model loaded successfully.
+2023-05-25 01:10:07,081 - DEBUG - Received frame for eye detection.
+2023-05-25 01:10:07,081 - DEBUG - Generating frames for video streaming.
+2023-05-25 01:10:07,081 - DEBUG - Serving dynamic video stream.
+2023-05-25 10:04:37,721 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-25 10:04:37,751 - DEBUG - Trained model loaded successfully.
+2023-05-25 10:04:37,751 - DEBUG - Received frame for eye detection.
+2023-05-25 10:04:37,751 - DEBUG - Generating frames for video streaming.
+2023-05-25 10:04:37,752 - DEBUG - Serving dynamic video stream.
+2023-05-25 10:13:35,491 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-25 10:13:35,505 - DEBUG - Trained model loaded successfully.
+2023-05-25 10:13:35,505 - DEBUG - Received frame for eye detection.
+2023-05-25 10:13:35,505 - DEBUG - Generating frames for video streaming.
+2023-05-25 10:13:35,505 - DEBUG - Serving dynamic video stream.
+2023-05-25 10:18:55,087 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-25 10:18:55,101 - DEBUG - Trained model loaded successfully.
+2023-05-25 10:18:55,101 - DEBUG - Received frame for eye detection.
+2023-05-25 10:18:55,101 - DEBUG - Generating frames for video streaming.
+2023-05-25 10:18:55,101 - DEBUG - Serving dynamic video stream.
+2023-05-25 10:53:16,932 - DEBUG - Loading the trained model from: eyetracking_app/trained_model.joblib
+2023-05-25 10:53:16,942 - DEBUG - Trained model loaded successfully.
+2023-05-25 10:53:16,942 - DEBUG - Received frame for eye detection.
+2023-05-25 10:53:16,942 - DEBUG - Generating frames for video streaming.
+2023-05-25 10:53:16,942 - DEBUG - Serving dynamic video stream.
